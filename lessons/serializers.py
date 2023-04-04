@@ -23,6 +23,8 @@ class BookImageSerializer(serializers.ModelSerializer):
 
 class BookSerializer(serializers.ModelSerializer):
     images = BookImageSerializer(many=True, read_only=True)
+    category = serializers.CharField(source='category.name', read_only=True)
+
     class Meta:
         model = Book
         fields = '__all__'
@@ -34,6 +36,8 @@ class ArchiveImageSerializer(serializers.ModelSerializer):
 
 class ArchiveSerializer(serializers.ModelSerializer):   
     images = ArchiveImageSerializer(many=True, read_only=True)
+    category = serializers.CharField(source='category.name', read_only=True)
+
     class Meta:
         model = Archive
         fields = '__all__'
@@ -45,6 +49,8 @@ class TopicImageSerializer(serializers.ModelSerializer):
 
 class TopicSerializer(serializers.ModelSerializer):
     images = TopicImageSerializer(many=True, read_only=True)
+    category = serializers.CharField(source='category.name', read_only=True)
+
     class Meta:
         model = Topic
         fields = '__all__'
