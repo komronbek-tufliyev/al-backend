@@ -6,11 +6,12 @@ from django.db.models import Q, Count
 
 
 from .models import (
-    Category,
     Book,
     Archive,
     Topic,
 )
+
+from quiz.models import Category
 
 from .serializers import (
     CategorySerializer,
