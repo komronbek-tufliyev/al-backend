@@ -1,16 +1,6 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
-
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = 'Categories'
+from quiz.models import Category
 
 
 class Book(models.Model):

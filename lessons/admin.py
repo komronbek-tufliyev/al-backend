@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import (
-    Category,
     Book,
     Archive,
     BookImage,
@@ -8,9 +7,6 @@ from .models import (
     Topic,
     TopicImage,
 )
-
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name',]
 
 class BookImageInline(admin.TabularInline):
     model = BookImage
@@ -39,7 +35,6 @@ class TopicAdmin(admin.ModelAdmin):
     list_display = ['title', 'category', 'author',]
     list_filter = ['category', 'author', ]
 
-admin.site.register(Category, CategoryAdmin)
 admin.site.register(Book, BookAdmin)
 admin.site.register(Archive, ArchiveAdmin)
 admin.site.register(Topic, TopicAdmin)
