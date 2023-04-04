@@ -30,12 +30,12 @@ class Quiz(models.Model):
 
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, verbose_name=_('Quiz'))
-    text = models.CharField(max_length=255, verbose_name=_('Text'))
+    text = models.TextField(verbose_name=_('Text'))
     answer1 = models.CharField(max_length=255, verbose_name=_('Answer 1'))
     answer2 = models.CharField(max_length=255, verbose_name=_('Answer 2'))
     answer3 = models.CharField(max_length=255, verbose_name=_('Answer 3'))
     answer4 = models.CharField(max_length=255, verbose_name=_('Answer 4'))
-
+    image = models.ImageField(upload_to='images/questions/', verbose_name=_('Image'), null=True, blank=True)
     CORRECT_ANSWER_CHOICES = (
         ('1', 'Answer 1'),
         ('2', 'Answer 2'),
